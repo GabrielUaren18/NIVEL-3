@@ -1,15 +1,64 @@
+
 <script>
 
 
 
+let precos = []
+  
+let quant = []
+  
+let total = []
 
+    let valorGeral = 0
+    let maisVendido = 0
+    let posicao = 0
 
+  for (let i = 0; i < 10; i++) {
+    
+        precos[i] = Number(prompt("Preço do produto " + (i + 1) + ":"))
+        quant[i] = Number(prompt("Quantidade do produto " + (i + 1) + ":"))
 
-
-
-
-
-
+    total[i] = precos[i] * quant[i]
+    
+    valorGeral += total[i]
 
     
+    
+if (quant[i] > maisVendido) {
+      
+    maisVendido = quant[i]
+     
+    posicao = i
+    
+}
+
+    console.log("Produto " + (i + 1) + 
+               
+    ": Qtde=" + quant[i] + 
+                
+    " Unit=" + precos[i].toFixed(2) + 
+                
+    " Total=" + total[i].toFixed(2))
+  
+}
+
+  let comissao = valorGeral * 0.05
+
+    console.log("Total vendido: " + valorGeral.toFixed(2))
+  
+    console.log("Comissão (5%): " + comissao.toFixed(2))
+  
+        console.log("Mais vendido: " + precos[posicao].toFixed(2))
+  
+    console.log("Posição no vetor: " + (posicao + 1))
+
+
+
+
+
+
+
 </script>
+
+
+
