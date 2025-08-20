@@ -1,21 +1,99 @@
 <script>
 
+let janela = Array(24).fill(0)   
+  
+let corredor = Array(24).fill(0)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  function mostrarMapa() {
     
+    let mapa = "JANELA\n"
+
+    for (let i = 0; i < 24; i++) {
+      
+        mapa += (i+1) + " - " + (janela[i] === 1 ? "Ocupada" : "Livre") + "\n"
+    }
+
+    mapa += "\nCORREDOR\n"
+
+    for (let i = 0; i < 24; i++) {
+      mapa += (i+1) + " - " + (corredor[i] === 1 ? "Ocupada" : "Livre") + "\n"
+    }
+
+    alert(mapa)
+  }
+
+
+  function onibusLotado() {
+    return janela.every(p => p === 1) && corredor.every(p => p === 1)
+  }
+
+
+  let opcao
+  do {
+    opcao = Number(prompt(
+      "Menu:\n1- Vender passagem\n2- Mostrar mapa\n3- Encerrar"
+    ))
+
+    if (opcao === 1) {
+      
+        if (onibusLotado()) {
+        
+        alert("Ônibus lotado")
+       
+        continue
+      }
+
+      let tipo = prompt("Janela ou corredor? (J/C)").toUpperCase()
+      
+      let numero = Number(prompt("Número da poltrona (1 a 24):")) - 1
+
+      if (tipo === "J") {
+        
+        if (janela[numero] === 0) {
+          
+            janela[numero] = 1
+        
+          alert("Venda efetivada")
+        
+        } else {
+          alert("Poltrona ocupada")
+        }
+     
+    } else if (tipo === "C") {
+        if (corredor[numero] === 0) {
+         
+            corredor[numero] = 1
+          
+            alert("Venda efetivada")
+       
+       
+     } else {
+          
+        alert("Poltrona ocupada")
+       
+       
+        }
+      }
+
+    } else if (opcao === 2) {
+      
+        mostrarMapa()
+
+    } else if (opcao !== 3) {
+      
+        alert("Opção inválida")
+    }
+
+  } while (opcao !== 3)
+
+
+  alert("Programa finalizado")
+
+
+
+
+
+
+
 </script>
