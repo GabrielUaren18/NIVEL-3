@@ -1,20 +1,43 @@
 <script>
 
+let P = []
+  let I = []
 
+    for (let i = 0; i < 15; i++) {
+        let num = Number(prompt("Digite um número:"))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if (num % 2 === 0) {
+        P.push(num)
+    } else {
+      
+        I.push(num)
     
+    }
+
+            if (P.length == 5) {
+             alert("Vetor P cheio: " + P)
+             P = []
+    }
+
+    if (I.length == 5) {
+      
+        alert("Vetor I cheio: " + I)
+      
+        I = []
+    }
+  }
+
+  if (P.length > 0) alert("Vetor P restante: " + P)
+  
+  if (I.length > 0) alert("Vetor I restante: " + I)
+
+/*Pra que serve o Push? adiciona um elemento ao final do array*/
+
+
+
+
+
+
+
+
 </script>
