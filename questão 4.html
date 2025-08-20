@@ -1,19 +1,115 @@
 <script>
 
+let contas = []
+  let saldos = []
 
+  
+  for (let i = 0; i < 10; i++) {
+    let codigo
+    
+    do {
+      codigo = Number(prompt("Digite o código da conta " + (i+1) + ":"))
+    } while (contas.includes(codigo)) 
+    
+    contas.push(codigo)
+    
+    saldos.push(Number(prompt("Digite o saldo da conta " + codigo + ":")))
+  }
 
+  let opcao
+  do {
+   
+    opcao = Number(prompt(
+     
+    "Menu:\n1. Depósito\n2. Saque\n3. Ativo bancário\n4. Finalizar"
+    
+    ))
 
+    if (opcao === 1) { 
+      
+        let codigo = Number(prompt("Digite o código da conta para depósito:"))
+      
+        let index = contas.indexOf(codigo)
+      
+        if (index === -1) {
+        
+            alert("Conta não encontrada")
+      
+        } else {
+       
+            let valor = Number(prompt("Digite o valor do depósito:"))
+        
+            saldos[index] += valor
+        
+        
+            alert("Depósito realizado. Novo saldo: " + saldos[index])
+      }
 
-
-
-
-
-
-
-
-
-
-
+    } else if (opcao === 2) { 
+      
+      
+        let codigo = Number(prompt("Digite o código da conta para saque:"))
+     
+     
+        let index = contas.indexOf(codigo)
+     
+     
+        if (index === -1) {
+      
+      
+            alert("Conta não encontrada")
+      
+        } else {
+      
+            let valor = Number(prompt("Digite o valor do saque:"))
+      
+            if (valor > saldos[index]) {
+      
+      
+                alert("Saldo insuficiente")
+      
+      
+            } else {
+      
+      
+                saldos[index] -= valor
+      
+      
+                alert("Saque realizado. Novo saldo: " + saldos[index])
+      
+            }
+      
+        }
 
     
+    } else if (opcao === 3) { 
+   
+        let total = 0
+   
+        for (let i = 0; i < saldos.length; i++) total += saldos[i]
+   
+   
+        alert("Ativo bancário: " + total)
+
+   
+    } else if (opcao !== 4) {
+    
+    
+        alert("Opção inválida")
+    }
+
+  
+
+} while (opcao !== 4)
+
+
+
+alert("Programa finalizado")
+
+
+
+
+
+
+
 </script>
