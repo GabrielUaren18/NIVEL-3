@@ -1,0 +1,43 @@
+<script>
+
+/*Questao 1: Fa ̧ca um programa que leia um vetor com cinco posi ̧c ̃oes para n ́umeros reais e, depois,
+
+um c ́odigo inteiro.
+• Se o c ́odigo for 0, finalize o programa;
+• Se for 1, mostre o vetor na ordem direta;
+• Se for 2, mostre o vetor na ordem inversa.
+Exemplo de execu ̧c ̃ao esperada:
+Digite 5 n ́umeros reais:
+5.2 3.8 9.1 4.5 2.0
+Digite o c ́odigo: 1
+Sa ́ıda: 5.2 3.8 9.1 4.5 2.0 */
+
+ let numeros = [];
+  for (let i = 0; i < 5; i++) {
+    numeros[i] = Number(prompt("Digite o " + (i + 1) + "º número real:"));
+  }
+
+  // Lendo o código
+  let codigo = Number(prompt("Digite o código (0 - sair, 1 - ordem direta, 2 - ordem inversa):"));
+
+  if (codigo === 0) {
+    console.log("Programa finalizado.");
+  } else if (codigo === 1) {
+    console.log("Saída: " + numeros.join(" / "));
+  } else if (codigo === 2) {
+    console.log("Saída: " + numeros.slice().reverse().join(" / "));
+  } else {
+    console.log("Código inválido.");
+  }
+
+
+
+
+
+
+
+
+
+
+
+</script>
